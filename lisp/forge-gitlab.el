@@ -150,7 +150,8 @@
     (forge--glab-get repo "/projects/:project/issues"
       `((per_page . 100)
         (order_by . "updated_at")
-        (updated_after . ,(forge--topics-until repo until 'issue)))
+        ;(updated_after . ,(forge--topics-until repo until 'issue))
+        )
       :unpaginate t
       :callback (lambda (value _headers _status _req)
                   (funcall cb cb value)))))
@@ -237,7 +238,8 @@
     (forge--glab-get repo "/projects/:project/merge_requests"
       `((per_page . 100)
         (order_by . "updated_at")
-        (updated_after . ,(forge--topics-until repo until 'pullreq)))
+        ;(updated_after . ,(forge--topics-until repo until 'pullreq))
+        )
       :unpaginate t
       :callback (lambda (value _headers _status _req)
                   (funcall cb cb value)))))
